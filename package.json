@@ -1,6 +1,6 @@
 {
   "name": "deps-report",
-  "version": "0.1.11",
+  "version": "0.1.2",
   "description": "Generate reports about dependencies and dependents of your JavaScript/TypeScript files through an AST. It supports import and require statements.",
   "keywords": [
     "dependencies",

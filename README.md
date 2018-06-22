@@ -59,9 +59,9 @@ Commands:
 ```
 $ deps-report find-dependencies tests/project-react-js-test/src/App.js
 
-react is a dependency of App.js
-./logo.svg is a dependency of App.js
-./App.css is a dependency of App.js
+react
+./logo.svg
+./App.css
 
 
 $ deps-report --json --pretty find-dependencies tests/project-react-js-test/src/App.js
@@ -92,9 +92,9 @@ $ deps-report --json --pretty --exclude-node-modules --abs-path find-dependencie
 
 $ deps-report find-dependencies tests/project-test/a1.ts
 
-fs is a dependency of a1.ts
-./b.ts is a dependency of a1.ts
-./e/b.js is a dependency of a1.ts
+fs
+./b.ts
+./e/b.js
 
 
 $ deps-report lorenzo$ deps-report --json --pretty find-dependencies tests/project-test/a1.ts
@@ -111,8 +111,8 @@ $ deps-report lorenzo$ deps-report --json --pretty find-dependencies tests/proje
 ```
 $ deps-report find-dependents tests/project-react-js-test/src/App.js
 
-tests/project-react-js-test/src/App.test.js depends on App.js
-tests/project-react-js-test/src/index.js depends on App.js
+tests/project-react-js-test/src/App.test.js
+tests/project-react-js-test/src/index.js
 
 
 $ deps-report --json --pretty find-dependents tests/project-react-js-test/src/App.js
