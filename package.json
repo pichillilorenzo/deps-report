@@ -1,0 +1,62 @@
+{
+  "name": "dependencies-reporter",
+  "version": "0.1.0",
+  "description": "Find dependents and dependencies of your javascript files",
+  "keywords": [
+    "dependencies",
+    "dependents",
+    "packages",
+    "report",
+    "reporter",
+    "usage",
+    "tracking",
+    "module",
+    "dependency",
+    "dependent",
+    "exports",
+    "require"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pichillilorenzo/dependencies-reporter"
+  },
+  "license": "MIT",
+  "files": ["lib"],
+  "author": {
+    "name": "Lorenzo Pichilli",
+    "email": "pichillilorenzo@gmail.com",
+    "url": "https://github.com/pichillilorenzo"
+  },
+  "dependencies": {
+    "flow-parser": "0.75.0",
+    "typescript": "2.9.2",
+    "commander": "2.15.1",
+    "globby": "8.0.1"
+  },
+  "devDependencies": {
+    "ava": "1.0.0-beta.6",
+    "nyc": "^12.0.2"
+  },
+  "engines": {
+    "node": ">=6"
+  },
+  "scripts": {
+    "start": "node ./lib/cli.js",
+    "start-json": "node ./lib/cli.js --json --pretty",
+    "start-json-abs": "node ./lib/cli.js --json --pretty --abs-path",
+    "start-json-exclude": "node ./lib/cli.js --json --pretty --exclude-node-modules",
+    "start-json-root": "node ./lib/cli.js --json --pretty --root ./tests/project-test",
+    "start-help": "node ./lib/cli.js --help",
+    "test": "nyc ava",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
+  },
+  "bin": {
+    "deps-report": "lib/cli.js"
+  },
+  "ava": {
+    "files": [
+      "./tests/**/*.js",
+      "!tests/project-*/**/*.js"
+    ]
+  }
+}
