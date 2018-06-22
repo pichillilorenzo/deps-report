@@ -16,9 +16,7 @@ Parsers used:
 
 ## Install
 
-```yarn add deps-report```
-or
-```npm install deps-report```
+`npm install -g deps-report`
 
 
 ## CLI Usage

@@ -16,7 +16,9 @@
     "exports",
     "require",
     "flow",
-    "typescript"
+    "typescript",
+    "ast",
+    "abstract-syntax-tree"
   ],
   "repository": {
     "type": "git",
