@@ -7,17 +7,15 @@
 Generate reports about dependencies and dependents of your JavaScript files through an AST. It supports `import` and `require` statements.
 
 Parser used:
-  - [flow-parser](https://www.npmjs.com/package/flow-parser) for .js files
-  - [typescript](https://github.com/Microsoft/TypeScript) for .ts files
+  - [flow-parser](https://www.npmjs.com/package/flow-parser) for `.js` files
+  - [typescript](https://github.com/Microsoft/TypeScript) for `.ts` files
 
 
 ## Install
 
-`yarn add deps-report`
-
+```yarn add deps-report```
 or
-
-`npm install deps-report`
+```npm install deps-report```
 
 
 ## CLI Usage
