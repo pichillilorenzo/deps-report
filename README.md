@@ -6,7 +6,7 @@
 
 Generate reports about dependencies and dependents of your JavaScript files through an AST. It supports `import` and `require` statements.
 
-Parser used:
+Parsers used:
   - [flow-parser](https://www.npmjs.com/package/flow-parser) for `.js` files
   - [typescript](https://github.com/Microsoft/TypeScript) for `.ts` files
 
