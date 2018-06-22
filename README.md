@@ -10,13 +10,15 @@ Parser used:
   - [flow-parser](https://www.npmjs.com/package/flow-parser) for .js files
   - [typescript](https://github.com/Microsoft/TypeScript) for .ts files
 
+
 ## Install
 
-```
-yarn add deps-report
-# or
-npm install deps-report
-```
+`yarn add deps-report`
+
+or
+
+`npm install deps-report`
+
 
 ## CLI Usage
 
@@ -52,9 +54,10 @@ Commands:
 
 ```
 
+
 ## Examples find-dependencies
 
-```
+```bash
 $ deps-report find-dependencies tests/project-react-js-test/src/App.js
 
 react is a dependency of App.js
@@ -106,7 +109,7 @@ $ deps-report lorenzo$ deps-report --json --pretty find-dependencies tests/proje
 
 ## Examples find-dependents
 
-```
+```bash
 $ deps-report find-dependents tests/project-react-js-test/src/App.js
 
 tests/project-react-js-test/src/App.test.js depends on App.js
