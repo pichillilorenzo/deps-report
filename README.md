@@ -4,7 +4,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/pichillilorenzo/dependencies-reporter/badge.svg?branch=master)](https://coveralls.io/github/pichillilorenzo/dependencies-reporter?branch=master)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](/LICENSE.txt)
 
-Generate reports about dependencies and dependents of your JavaScript files through an AST. It supports `import` and `require` statements.
+Generate reports about dependencies and dependents of your JavaScript/TypeScript files through an **AST**. It supports `import` and `require` statements.
 
 Parsers used:
   - [flow-parser](https://www.npmjs.com/package/flow-parser) for `.js` files

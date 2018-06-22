@@ -1,7 +1,7 @@
 {
   "name": "deps-report",
   "version": "0.1.0",
-  "description": "Find dependencies and dependents of your javascript files",
+  "description": "Generate reports about dependencies and dependents of your JavaScript/TypeScript files through an AST. It supports import and require statements.",
   "keywords": [
     "dependencies",
     "dependents",
@@ -14,7 +14,9 @@
     "dependency",
     "dependent",
     "exports",
-    "require"
+    "require",
+    "flow",
+    "typescript"
   ],
   "repository": {
     "type": "git",
