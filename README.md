@@ -139,3 +139,7 @@ $ deps-report --json --pretty find-dependents --root tests/project-test tests/pr
   "tests/project-test/b.ts"
 ]
 ```
+
+## License
+
+_MIT License_
