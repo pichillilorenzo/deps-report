@@ -7,6 +7,8 @@ import d from './c/d.js'
 // $FlowFixMe
 import Utilities from 'Utilities'
 // $FlowFixMe
+import UtilitiesRelativePath from 'UtilitiesRelativePath'
+// $FlowFixMe
 import utilityA from 'Utilities/utilityA'
 // $FlowFixMe
 import templates from 'Templates'

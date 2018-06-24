@@ -26,12 +26,13 @@ Usage: deps-report [options] [command]
 
 Options:
 
-  -V, --version                          output the version number
-  --json                                 Output results in JSON format
-  --pretty                               Pretty-print JSON output (implies --json)
-  --abs-path                             Print absolute path of dependencies/dependents
-  --exclude-node-modules                 Don't consider node_modules dependencies
-  -h, --help                             output usage information
+  -V, --version                             output the version number
+  -j, --json                                Output results in JSON format
+  -p, --pretty                              Pretty-print JSON output (implies --json)
+  -a, --abs-path                            Print absolute path of dependencies/dependents
+  -e, --exclude-node-modules                Don't consider node_modules dependencies
+  -w, --webpack-config [webpackConfigFile]  Webpack config file for resolving aliased modules
+  -h, --help                                output usage information
 
 Commands:
 
@@ -64,30 +65,57 @@ react
 ./App.css
 
 
-$ deps-report --json --pretty find-dependencies tests/project-react-js-test/src/App.js
+$ deps-report -jp find-dependencies tests/project-react-js-test/src/App.js
 [
   "react",
   "./logo.svg",
   "./App.css"
 ]
 
-$ deps-report --json --pretty --exclude-node-modules find-dependencies tests/project-react-js-test/src/App.js
+$ deps-report -jpe find-dependencies tests/project-react-js-test/src/App.js
 [
   "./logo.svg",
   "./App.css"
 ]
 
-$ deps-report --json --pretty --abs-path find-dependencies tests/project-react-js-test/src/App.js
+$ deps-report -jpa find-dependencies tests/project-react-js-test/src/App.js
 [
   "react",
   "/Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/logo.svg",
   "/Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/App.css"
 ]
 
-$ deps-report --json --pretty --exclude-node-modules --abs-path find-dependencies tests/project-react-js-test/src/App.js
+$ deps-report -jpea find-dependencies tests/project-react-js-test/src/App.js
 [
   "/Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/logo.svg",
   "/Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/App.css"
+]
+
+$ deps-report -jp -w tests/project-test/webpack.config.js find-dependencies tests/project-test/a.js
+[
+  "fs",
+  "./c/d.js",
+  "Utilities/index.js",
+  "UtilitiesRelativePath",
+  "Utilities/utilityA.js",
+  "Templates/main.js",
+  "TemplatesMain",
+  "MyPath",
+  "fs",
+  "./e/b.js",
+  "./c/d.js"
+]
+
+$ deps-report -jpea -w tests/project-test/webpack.config.js find-dependencies tests/project-test/a.js
+[
+  "/Users/lorenzo/Desktop/deps-report/tests/project-test/c/d.js",
+  "/Users/lorenzo/Desktop/deps-report/tests/project-test/src/utilities/index.js",
+  "/Users/lorenzo/Desktop/deps-report/tests/project-test/src/utilities/relative.js",
+  "/Users/lorenzo/Desktop/deps-report/tests/project-test/src/utilities/utilityA.js",
+  "/Users/lorenzo/Desktop/deps-report/tests/project-test/src/templates/main.js",
+  "/Users/lorenzo/Desktop/deps-report/tests/project-test/src/templates/main.js",
+  "/Users/lorenzo/Desktop/deps-report/tests/project-test/e/b.js",
+  "/Users/lorenzo/Desktop/deps-report/tests/project-test/c/d.js"
 ]
 
 $ deps-report find-dependencies tests/project-test/a1.ts
@@ -97,7 +125,7 @@ fs
 ./e/b.js
 
 
-$ deps-report lorenzo$ deps-report --json --pretty find-dependencies tests/project-test/a1.ts
+$ deps-report -jp find-dependencies tests/project-test/a1.ts
 [
   "fs",
   "fs",
@@ -115,13 +143,13 @@ tests/project-react-js-test/src/App.test.js
 tests/project-react-js-test/src/index.js
 
 
-$ deps-report --json --pretty find-dependents tests/project-react-js-test/src/App.js
+$ deps-report -jp find-dependents tests/project-react-js-test/src/App.js
 [
   "tests/project-react-js-test/src/App.test.js",
   "tests/project-react-js-test/src/index.js"
 ]
 
-$ deps-report --json --pretty --abs-path find-dependents tests/project-react-js-test/src/App.js
+$ deps-report -jpa find-dependents tests/project-react-js-test/src/App.js
 [
   "/Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/App.test.js",
   "/Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/index.js"
@@ -132,11 +160,22 @@ $ deps-report find-dependents tests/project-test/a1.ts
 No dependents found!
 
 
-$ deps-report --json --pretty find-dependents --root tests/project-test tests/project-test/c/d.js
+$ deps-report -jp find-dependents -r tests/project-test tests/project-test/c/d.js
 [
   "tests/project-test/a.js",
   "tests/project-test/e/b.js",
   "tests/project-test/b.ts"
+]
+
+$ deps-report -w tests/project-test/webpack.config.js -jpe find-dependents -r tests/project-test/ tests/project-test/src/utilities/index.js
+[
+  "tests/project-test/a.js"
+]
+
+$ deps-report -w tests/project-test/webpack.config.js -jpe find-dependents -r tests/project-test/ tests/project-test/src/templates/main.js
+[
+  "tests/project-test/a.js",
+  "tests/project-test/src/utilities/index.js"
 ]
 ```
 
