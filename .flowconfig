@@ -8,5 +8,6 @@
 [lints]
 
 [options]
+suppress_comment= \\(.\\|\n\\)*\\$Ignore
 
 [strict]

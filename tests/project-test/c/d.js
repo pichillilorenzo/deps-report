@@ -5,4 +5,7 @@ const fs = require('fs'),
   b = require('../b'),
   a = require('../a')
 
-module.exports = {}
+module.exports = {
+  d1: 1,
+  d2: 2
+}

@@ -5,7 +5,6 @@
 
 # misc
 .DS_Store
-/.je-project-settings
 /.nyc_output
 
 npm-debug.log*
