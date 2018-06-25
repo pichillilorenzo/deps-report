@@ -149,6 +149,7 @@ tests/project-test/a.js, found 12 dependencies:
  11) ./e/b.js, specifiers imported: b_folder_e
  12) ./c/d.js, specifiers imported: d1, d2
 
+
 $ deps-report -ae -w tests/project-test/webpack.config.js find-dependencies tests/project-test/a.js
 
 tests/project-test/a.js, found 8 dependencies:
@@ -163,6 +164,7 @@ tests/project-test/a.js, found 8 dependencies:
 ```
 
 JSON format example:
+
 ```
 $ deps-report -jp find-dependencies tests/project-react-js-test/src/App.js
 
@@ -210,6 +212,7 @@ $ deps-report -jp find-dependencies tests/project-react-js-test/src/App.js
   }
 }
 ```
+
 
 ## Examples find-dependents
 
@@ -263,6 +266,7 @@ tests/project-test/src/templates/main.js, found 3 dependents:
 ```
 
 You can search also **images** and **css** files imported in your javascript files (such as in a React project):
+
 ```
 $ deps-report -s find-dependents tests/project-react-js-test/src/logo.svg
 
@@ -276,7 +280,8 @@ tests/project-react-js-test/src/App.css, found 1 dependents:
   1) tests/project-react-js-test/src/App.js
 ```
 
-## API Usage
+
+## API Usage
 
 ```javascript
 const depsReport = require('deps-report')
@@ -313,6 +318,7 @@ let optionsFindDependents = {
 
 depsReport.findDependents(["tests/project-test/src/templates/*.js", "tests/project-test/src/utilities/*.js"], optionsFindDependents)
 ```
+
 
 ## License
 
