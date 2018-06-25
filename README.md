@@ -35,6 +35,7 @@ Options:
   -e, --exclude-node-modules                Don't consider node_modules dependencies
   -w, --webpack-config [webpackConfigFile]  Webpack config file for resolving aliased modules
   -s, --specifiers                          Show specifiers imported by the dependency/dependent
+  --no-color                                Display terminal output without colors
   -h, --help                                output usage information
 
 Commands:
@@ -64,103 +65,103 @@ Commands:
 $ deps-report find-dependencies tests/project-react-js-test/src/App.js
 
 tests/project-react-js-test/src/App.js, found 3 dependencies:
-  1) react
-  2) ./logo.svg
-  3) ./App.css
+ 1) react
+ 2) ./logo.svg
+ 3) ./App.css
 
 
 $ deps-report -s find-dependencies tests/project-react-js-test/src/App.js
 
 tests/project-react-js-test/src/App.js, found 3 dependencies:
-  1) react, specifiers imported: React, Component
-  2) ./logo.svg, specifiers imported: logo
-  3) ./App.css
+ 1) react, specifiers imported: default as React, Component
+ 2) ./logo.svg, specifiers imported: default as logo
+ 3) ./App.css
 
 
 $ deps-report -a find-dependencies tests/project-react-js-test/src/*.js
 
 tests/project-react-js-test/src/App.js, found 3 dependencies:
-  1) react
-  2) /Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/logo.svg
-  3) /Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/App.css
+ 1) react
+ 2) /Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/logo.svg
+ 3) /Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/App.css
 
 tests/project-react-js-test/src/App.test.js, found 3 dependencies:
-  1) react
-  2) react-dom
-  3) /Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/App.js
+ 1) react
+ 2) react-dom
+ 3) /Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/App.js
 
 tests/project-react-js-test/src/index.js, found 5 dependencies:
-  1) react
-  2) react-dom
-  3) /Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/index.css
-  4) /Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/App.js
-  5) /Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/registerServiceWorker.js
+ 1) react
+ 2) react-dom
+ 3) /Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/index.css
+ 4) /Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/App.js
+ 5) /Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/registerServiceWorker.js
 
 tests/project-react-js-test/src/registerServiceWorker.js, found 0 dependencies:
-  No dependencies found!
+    No dependencies found!
 
 
 $ deps-report -ae find-dependencies tests/project-react-js-test/src/*.js
 
 tests/project-react-js-test/src/App.js, found 2 dependencies:
-  1) /Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/logo.svg
-  2) /Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/App.css
+ 1) /Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/logo.svg
+ 2) /Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/App.css
 
-tests/project-react-js-test/src/App.test.js, found 1 dependencies:
-  1) /Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/App.js
+tests/project-react-js-test/src/App.test.js, found 1 dependency:
+ 1) /Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/App.js
 
 tests/project-react-js-test/src/index.js, found 3 dependencies:
-  1) /Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/index.css
-  2) /Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/App.js
-  3) /Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/registerServiceWorker.js
+ 1) /Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/index.css
+ 2) /Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/App.js
+ 3) /Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/registerServiceWorker.js
 
 tests/project-react-js-test/src/registerServiceWorker.js, found 0 dependencies:
-  No dependencies found!
+    No dependencies found!
 
 
 $ deps-report -ae find-dependencies tests/project-react-js-test/src/*.js '!tests/project-react-js-test/src/**/*.test.js'
 
 tests/project-react-js-test/src/App.js, found 2 dependencies:
-  1) /Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/logo.svg
-  2) /Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/App.css
+ 1) /Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/logo.svg
+ 2) /Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/App.css
 
 tests/project-react-js-test/src/index.js, found 3 dependencies:
-  1) /Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/index.css
-  2) /Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/App.js
-  3) /Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/registerServiceWorker.js
+ 1) /Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/index.css
+ 2) /Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/App.js
+ 3) /Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/registerServiceWorker.js
 
 tests/project-react-js-test/src/registerServiceWorker.js, found 0 dependencies:
-  No dependencies found!
+    No dependencies found!
 
 
 $ deps-report -w tests/project-test/webpack.config.js find-dependencies tests/project-test/a.js
 
 tests/project-test/a.js, found 12 dependencies:
-  1) path
-  2) fs, specifiers imported: fs, readFileSync, readFile as readFileAsync
-  3) ./c/d.js, specifiers imported: d
-  4) Utilities/index.js, specifiers imported: Utilities
-  5) UtilitiesRelativePath, specifiers imported: UtilitiesRelativePath
-  6) Utilities/utilityA.js, specifiers imported: utilityA
-  7) Templates/main.js, specifiers imported: templates
-  8) TemplatesMain, specifiers imported: templatesMain
-  9) MyPath, specifiers imported: MyPath
- 10) fs, specifiers imported: fs1
- 11) ./e/b.js, specifiers imported: b_folder_e
- 12) ./c/d.js, specifiers imported: d1, d2
+ 1) path
+ 2) fs
+ 3) ./c/d.js
+ 4) Utilities/index.js
+ 5) UtilitiesRelativePath
+ 6) Utilities/utilityA.js
+ 7) Templates/main.js
+ 8) TemplatesMain
+ 9) MyPath
+10) fs
+11) ./e/b.js
+12) ./c/d.js
 
 
 $ deps-report -ae -w tests/project-test/webpack.config.js find-dependencies tests/project-test/a.js
 
 tests/project-test/a.js, found 8 dependencies:
-  1) /Users/lorenzo/Desktop/deps-report/tests/project-test/c/d.js
-  2) /Users/lorenzo/Desktop/deps-report/tests/project-test/src/utilities/index.js
-  3) /Users/lorenzo/Desktop/deps-report/tests/project-test/src/utilities/relative.js
-  4) /Users/lorenzo/Desktop/deps-report/tests/project-test/src/utilities/utilityA.js
-  5) /Users/lorenzo/Desktop/deps-report/tests/project-test/src/templates/main.js
-  6) /Users/lorenzo/Desktop/deps-report/tests/project-test/src/templates/main.js
-  7) /Users/lorenzo/Desktop/deps-report/tests/project-test/e/b.js
-  8) /Users/lorenzo/Desktop/deps-report/tests/project-test/c/d.js
+ 1) /Users/lorenzo/Desktop/deps-report/tests/project-test/c/d.js
+ 2) /Users/lorenzo/Desktop/deps-report/tests/project-test/src/utilities/index.js
+ 3) /Users/lorenzo/Desktop/deps-report/tests/project-test/src/utilities/relative.js
+ 4) /Users/lorenzo/Desktop/deps-report/tests/project-test/src/utilities/utilityA.js
+ 5) /Users/lorenzo/Desktop/deps-report/tests/project-test/src/templates/main.js
+ 6) /Users/lorenzo/Desktop/deps-report/tests/project-test/src/templates/main.js
+ 7) /Users/lorenzo/Desktop/deps-report/tests/project-test/e/b.js
+ 8) /Users/lorenzo/Desktop/deps-report/tests/project-test/c/d.js
 ```
 
 JSON format example:
@@ -220,49 +221,49 @@ $ deps-report -jp find-dependencies tests/project-react-js-test/src/App.js
 $ deps-report find-dependents tests/project-react-js-test/src/App.js
 
 tests/project-react-js-test/src/App.js, found 2 dependents:
-  1) tests/project-react-js-test/src/App.test.js
-  2) tests/project-react-js-test/src/index.js
+ 1) tests/project-react-js-test/src/App.test.js
+ 2) tests/project-react-js-test/src/index.js
 
 
 $ deps-report -s find-dependents tests/project-react-js-test/src/App.js
 
 tests/project-react-js-test/src/App.js, found 2 dependents:
-  1) tests/project-react-js-test/src/App.test.js, specifiers imported: App
-  2) tests/project-react-js-test/src/index.js, specifiers imported: App
+ 1) tests/project-react-js-test/src/App.test.js, specifiers imported: default as App
+ 2) tests/project-react-js-test/src/index.js, specifiers imported: default as App
 
 
 $ deps-report -as find-dependents tests/project-react-js-test/src/App.js
 
 tests/project-react-js-test/src/App.js, found 2 dependents:
-  1) /Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/App.test.js, specifiers imported: App
-  2) /Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/index.js, specifiers imported: App
+ 1) /Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/App.test.js, specifiers imported: default as App
+ 2) /Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/index.js, specifiers imported: default as App
 
 
 $ deps-report find-dependents tests/project-test/a1.ts
 
 tests/project-test/a1.ts, found 0 dependents:
-  No dependents found!
+    No dependents found!
 
 
 $ deps-report find-dependents -r tests/project-test tests/project-test/c/d.js
 
 tests/project-test/c/d.js, found 4 dependents:
-  1) tests/project-test/a.js
-  2) tests/project-test/e/b.js
-  3) tests/project-test/a.ts
-  4) tests/project-test/b.ts
+ 1) tests/project-test/a.js
+ 2) tests/project-test/e/b.js
+ 3) tests/project-test/a.ts
+ 4) tests/project-test/b.ts
 
 
 $ deps-report -es -w tests/project-test/webpack.config.js find-dependents -r tests/project-test/ tests/project-test/src/utilities/index.js tests/project-test/src/templates/main.js
 
 tests/project-test/src/utilities/index.js, found 2 dependents:
-  1) tests/project-test/a.js, specifiers imported: Utilities
-  2) tests/project-test/a.ts, specifiers imported: Utilities
+ 1) tests/project-test/a.js, specifiers imported: default as Utilities
+ 2) tests/project-test/a.ts, specifiers imported: default as Utilities
 
 tests/project-test/src/templates/main.js, found 3 dependents:
-  1) tests/project-test/a.js, specifiers imported: templates
-  2) tests/project-test/src/utilities/index.js, specifiers imported: templates
-  3) tests/project-test/a.ts, specifiers imported: templates
+ 1) tests/project-test/a.js, specifiers imported: default as templates
+ 2) tests/project-test/src/utilities/index.js, specifiers imported: default as templates
+ 3) tests/project-test/a.ts, specifiers imported: default as templates
 ```
 
 You can search also **images** and **css** files imported in your javascript files (such as in a React project):
@@ -270,14 +271,14 @@ You can search also **images** and **css** files imported in your javascript fil
 ```
 $ deps-report -s find-dependents tests/project-react-js-test/src/logo.svg
 
-tests/project-react-js-test/src/logo.svg, found 1 dependents:
-  1) tests/project-react-js-test/src/App.js, specifiers imported: logo
+tests/project-react-js-test/src/logo.svg, found 1 dependent:
+ 1) tests/project-react-js-test/src/App.js, specifiers imported: default as logo
 
 
 $ deps-report find-dependents tests/project-react-js-test/src/App.css
 
-tests/project-react-js-test/src/App.css, found 1 dependents:
-  1) tests/project-react-js-test/src/App.js
+tests/project-react-js-test/src/App.css, found 1 dependent:
+ 1) tests/project-react-js-test/src/App.js
 ```
 
 JSON format example:
@@ -336,7 +337,8 @@ let optionsFindDependencies = {
     pretty: false, 
     absPath: false, 
     webpackConfig: 'tests/project-test/webpack.config.js', 
-    specifiers: false
+    specifiers: false,
+    color: false
   } 
 }
 
@@ -353,7 +355,8 @@ let optionsFindDependents = {
     pretty: false, 
     absPath: false, 
     webpackConfig: 'tests/project-test/webpack.config.js', 
-    specifiers: false
+    specifiers: false,
+    color: false
   } 
 }
 
