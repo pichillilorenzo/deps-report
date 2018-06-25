@@ -20,6 +20,9 @@ Parsers used:
 npm install -g deps-report
 ```
 
+## Screenshots
+![](https://drive.google.com/uc?authuser=0&id=1GHYVTXM6KSaAtjOvNqA-2Q-z5TKc-nQC&export=download)
+
 
 ## CLI Usage
 
