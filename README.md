@@ -280,6 +280,47 @@ tests/project-react-js-test/src/App.css, found 1 dependents:
   1) tests/project-react-js-test/src/App.js
 ```
 
+JSON format example:
+
+```
+$ deps-report -jp find-dependents tests/project-react-js-test/src/App.js
+
+{
+  "tests/project-react-js-test/src/App.js": {
+    "absolutePath": "/Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/App.js",
+    "files": 2,
+    "dependents": [
+      {
+        "filePath": "tests/project-react-js-test/src/App.test.js",
+        "fileAbsolutePath": "/Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/App.test.js",
+        "importPath": "./App.js",
+        "importAbsolutePath": "/Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/App.js",
+        "specifiers": [
+          {
+            "name": "App",
+            "alias": "",
+            "isDefault": true
+          }
+        ]
+      },
+      {
+        "filePath": "tests/project-react-js-test/src/index.js",
+        "fileAbsolutePath": "/Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/index.js",
+        "importPath": "./App.js",
+        "importAbsolutePath": "/Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/App.js",
+        "specifiers": [
+          {
+            "name": "App",
+            "alias": "",
+            "isDefault": true
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
 
 ## API Usage
 
