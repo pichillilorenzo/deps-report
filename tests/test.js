@@ -9,7 +9,7 @@ const path = require("path"),
 
 let testResults = JSON.stringify(require("./testResults.json"))
 // prepare testResult
-testResults = JSON.parse(testResults.replace("/Users/lorenzo/Desktop/deps-report", depsReportPath))
+testResults = JSON.parse(testResults.replace(/\/Users\/lorenzo\/Desktop\/deps\-report/g, depsReportPath))
 
 /*
   project-test folder
@@ -65,5 +65,5 @@ test('Test find-dependents in project-react-js-test folder', t => {
 
   let optionsFindDependents = {root: '', parent: {excludeNodeModules: false, json: true, pretty: false, absPath: false, webpackConfig: ''} }
   t.deepEqual(findDependents(["tests/project-react-js-test/src/*.js"], optionsFindDependents), testResults[11])
-  
+
 })
