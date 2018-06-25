@@ -65,7 +65,8 @@
   "ava": {
     "files": [
       "./tests/**/*.js",
-      "!tests/project-*/**/*.js"
+      "!tests/project-*/**/*.js",
+      "!tests/testResults.js"
     ]
   }
 }

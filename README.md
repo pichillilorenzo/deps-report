@@ -179,6 +179,12 @@ $ deps-report -w tests/project-test/webpack.config.js -jpe find-dependents -r te
 ]
 ```
 
+## Usage
+
+```javascript
+const depsReport = require('deps-report')
+```
+
 ## License
 
 _MIT License_
