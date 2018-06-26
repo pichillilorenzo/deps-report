@@ -374,7 +374,7 @@ depsReport.findDependents(["tests/project-test/src/templates/*.js", "tests/proje
 For feature requests/enhancement, create an issue!
 
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.me/LorenzoPichilli)
-[![Become a Patron](https://img.shields.io/badge/-Become%20a%20Patron!-red.svg?style=for-the-badge)](https://www.patreon.com/bePatron?u=9269604)
+[![Become a Patron](https://img.shields.io/badge/-Become%20a%20Patron!-red.svg?style=for-the-badge)](https://www.patreon.com/bePatron?u=9269604) [![Greenkeeper badge](https://badges.greenkeeper.io/pichillilorenzo/deps-report.svg)](https://greenkeeper.io/)
 
 
 ## License
