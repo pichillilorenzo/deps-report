@@ -6,6 +6,8 @@
 [![Travis](https://img.shields.io/travis/pichillilorenzo/deps-report.svg?branch=master)](https://travis-ci.org/pichillilorenzo/deps-report)
 [![Coverage Status](https://coveralls.io/repos/github/pichillilorenzo/deps-report/badge.svg?branch=master)](https://coveralls.io/github/pichillilorenzo/deps-report?branch=master)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](/LICENSE.txt)
+[![Donate to this project using Paypal](https://img.shields.io/badge/paypal-donate-yellow.svg)](https://www.paypal.me/LorenzoPichilli)
+[![Donate to this project using Patreon](https://img.shields.io/badge/patreon-donate-yellow.svg)](https://www.patreon.com/bePatron?u=9269604)
 
 Generate reports about dependencies and dependents of your JavaScript/TypeScript files through an **AST**. It supports `import` and `require` statements.
 
