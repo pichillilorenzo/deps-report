@@ -1,0 +1,11 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        "package.json",
+        "tests/project-react-js-test/package.json",
+        "tests/project-test/src/templates/package.json"
+      ]
+    }
+  }
+}
