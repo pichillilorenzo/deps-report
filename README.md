@@ -366,6 +366,10 @@ let optionsFindDependents = {
 depsReport.findDependents(["tests/project-test/src/templates/*.js", "tests/project-test/src/utilities/*.js"], optionsFindDependents)
 ```
 
+## Feature request/enhancement
+
+For feature requests/enhancement, create an issue!
+
 
 ## License
 
