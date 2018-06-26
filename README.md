@@ -6,6 +6,7 @@
 [![Travis](https://img.shields.io/travis/pichillilorenzo/deps-report.svg?branch=master)](https://travis-ci.org/pichillilorenzo/deps-report)
 [![Coverage Status](https://coveralls.io/repos/github/pichillilorenzo/deps-report/badge.svg?branch=master)](https://coveralls.io/github/pichillilorenzo/deps-report?branch=master)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](/LICENSE.txt)
+[![Greenkeeper badge](https://badges.greenkeeper.io/pichillilorenzo/deps-report.svg)](https://greenkeeper.io/)
 [![Donate to this project using Paypal](https://img.shields.io/badge/paypal-donate-yellow.svg)](https://www.paypal.me/LorenzoPichilli)
 [![Donate to this project using Patreon](https://img.shields.io/badge/patreon-donate-yellow.svg)](https://www.patreon.com/bePatron?u=9269604)
 
@@ -374,7 +375,7 @@ depsReport.findDependents(["tests/project-test/src/templates/*.js", "tests/proje
 For feature requests/enhancement, create an issue!
 
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.me/LorenzoPichilli)
-[![Become a Patron](https://img.shields.io/badge/-Become%20a%20Patron!-red.svg?style=for-the-badge)](https://www.patreon.com/bePatron?u=9269604) [![Greenkeeper badge](https://badges.greenkeeper.io/pichillilorenzo/deps-report.svg)](https://greenkeeper.io/)
+[![Become a Patron](https://img.shields.io/badge/-Become%20a%20Patron!-red.svg?style=for-the-badge)](https://www.patreon.com/bePatron?u=9269604)
 
 
 ## License
