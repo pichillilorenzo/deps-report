@@ -4,6 +4,8 @@ import fs, { readFileSync, readFile as readFileAsync } from 'fs'
 
 import d from './c/d.js'
 
+import b from './b'
+
 import Utilities from 'Utilities'
 import UtilitiesRelativePath from 'UtilitiesRelativePath'
 import utilityA from 'Utilities/utilityA'
@@ -17,4 +19,6 @@ const fs1 = require('fs'),
   b_folder_e = require('./e/b'),
   {d1, d2} = require('./c/d.js')
 
-module.exports = {}
+export default function () {
+  return null
+}

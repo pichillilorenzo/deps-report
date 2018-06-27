@@ -11,10 +11,14 @@ type DepsReportCommandOptions = {
 }
 
 type FindDependenciesCommandOptions = {
+  circular: boolean,
+  onlyCircular: boolean,
   parent: DepsReportCommandOptions
 }
 
 type FindDependentsCommandOptions = {
   root: string, 
+  circular: boolean,
+  onlyCircular: boolean,
   parent: DepsReportCommandOptions
 }
