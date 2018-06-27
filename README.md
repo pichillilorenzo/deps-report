@@ -51,9 +51,9 @@ Commands:
       Usage: find-dependencies [options] <glob> [otherGlobs...]
       Options:
 
-        -c, --circular    Show if there are some circular dependencies
-        --only-circular   Show only circular dependencies
-        -h, --help        output usage information
+        -c, --circular      Show if there are some circular dependencies
+        --only-circular     Show only circular dependencies
+        -h, --help          output usage information
 
 
   find-dependents [options] <glob> [otherGlobs...]
