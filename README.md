@@ -51,9 +51,9 @@ Commands:
       Usage: find-dependencies [options] <glob> [otherGlobs...]
       Options:
 
-        -c, --circular   Show if there are some circular dependencies
-        --only-circular  Show only circular dependencies
-        -h, --help       output usage information
+        -c, --circular    Show if there are some circular dependencies
+        --only-circular   Show only circular dependencies
+        -h, --help        output usage information
 
 
   find-dependents [options] <glob> [otherGlobs...]
@@ -61,10 +61,10 @@ Commands:
       Usage: find-dependents [options] <glob> [otherGlobs...]
       Options:
 
-        -r, --root [root]  Root folder from where to start the search
-        -c, --circular   Show if there are some circular dependencies
-        --only-circular  Show only circular dependencies
-        -h, --help         output usage information
+        -r, --root [root]   Root folder from where to start the search
+        -c, --circular      Show if there are some circular dependencies
+        --only-circular     Show only circular dependencies
+        -h, --help          output usage information
 
 ```
 
@@ -372,7 +372,7 @@ depsReport.findDependencies(["tests/project-test/a.js"], optionsFindDependencies
 // find-dependents command options
 
 let optionsFindDependents = {
-  root: 'tests/project-test', 
+  root: 'tests/project-test',   // Root folder from where to start the search of dependents
   circular: false,              // if true, it will try to see if there are some circular dependencies with input files
   onlyCircular: false,          // if true, it will return only dependents with circular dependency with input files
   parent: {
