@@ -1,7 +1,7 @@
 // @flow
 
 const fs = require('fs'),
-  // $Ignore because of .ts extension
+  // $Ignore, ../b.js doesn't exist, only ../b.ts so it is wrong in this case
   b = require('../b'),
   a = require('../a')
 

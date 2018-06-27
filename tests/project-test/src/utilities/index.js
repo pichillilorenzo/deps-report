@@ -1,6 +1,6 @@
 // @flow
 
-// $FlowFixMe
+// $Ignore
 import templates from 'Templates'
 
 module.exports = {}
