@@ -52,6 +52,8 @@ Commands:
       Options:
 
         -c, --circular      Show if there are some circular dependencies
+        --only-not-found    Show all modules that have no dependencies
+        --hide-not-found    Hide all modules that have no dependencies
         --only-circular     Show only circular dependencies
         -h, --help          output usage information
 
@@ -61,8 +63,10 @@ Commands:
       Usage: find-dependents [options] <glob> [otherGlobs...]
       Options:
 
-        -r, --root [root]   Root folder from where to start the search
+        -r, --root [root]   Root folder from where to start the search. Default is the dirname of each glob entry
         -c, --circular      Show if there are some circular dependencies
+        --only-not-found    Show all modules that no one is depending on
+        --hide-not-found    Hide all modules that no one is depending on
         --only-circular     Show only circular dependencies
         -h, --help          output usage information
 
@@ -74,6 +78,8 @@ Commands:
 ```
 $ deps-report find-dependencies tests/project-react-js-test/src/App.js
 
+Processed 1 file in 122.297ms.
+
 tests/project-react-js-test/src/App.js, found 3 dependencies:
  1) react
  2) ./logo.svg
@@ -82,13 +88,17 @@ tests/project-react-js-test/src/App.js, found 3 dependencies:
 
 $ deps-report -s find-dependencies tests/project-react-js-test/src/App.js
 
+Processed 1 file in 127.538ms.
+
 tests/project-react-js-test/src/App.js, found 3 dependencies:
  1) react, specifiers imported: default as React, Component
  2) ./logo.svg, specifiers imported: default as logo
  3) ./App.css
 
 
-$ deps-report -a find-dependencies tests/project-react-js-test/src/*.js
+$ deps-report -a find-dependencies 'tests/project-react-js-test/src/*.js'
+
+Processed 4 files in 149.446ms.
 
 tests/project-react-js-test/src/App.js, found 3 dependencies:
  1) react
@@ -111,7 +121,9 @@ tests/project-react-js-test/src/registerServiceWorker.js, found 0 dependencies:
     No dependencies found!
 
 
-$ deps-report -ae find-dependencies tests/project-react-js-test/src/*.js
+$ deps-report -ae find-dependencies 'tests/project-react-js-test/src/*.js'
+
+Processed 4 files in 139.507ms.
 
 tests/project-react-js-test/src/App.js, found 2 dependencies:
  1) /Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/logo.svg
@@ -129,7 +141,9 @@ tests/project-react-js-test/src/registerServiceWorker.js, found 0 dependencies:
     No dependencies found!
 
 
-$ deps-report -ae find-dependencies tests/project-react-js-test/src/*.js '!tests/project-react-js-test/src/**/*.test.js'
+$ deps-report -ae find-dependencies 'tests/project-react-js-test/src/*.js' '!tests/project-react-js-test/src/**/*.test.js'
+
+Processed 3 files in 141.737ms.
 
 tests/project-react-js-test/src/App.js, found 2 dependencies:
  1) /Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/logo.svg
@@ -146,10 +160,12 @@ tests/project-react-js-test/src/registerServiceWorker.js, found 0 dependencies:
 
 $ deps-report -w tests/project-test/webpack.config.js find-dependencies tests/project-test/a.js
 
+Processed 1 file in 109.559ms.
+
 tests/project-test/a.js, found 12 dependencies:
  1) path
  2) fs
- 3) ./c/d.js, Circular Dependency
+ 3) ./c/d.js
  4) Utilities/index.js
  5) UtilitiesRelativePath
  6) Utilities/utilityA.js
@@ -158,10 +174,12 @@ tests/project-test/a.js, found 12 dependencies:
  9) MyPath
 10) fs
 11) ./e/b.js
-12) ./c/d.js, Circular Dependency
+12) ./c/d.js
 
 
 $ deps-report -w tests/project-test/webpack.config.js find-dependencies --only-circular tests/project-test/a.js
+
+Processed 1 file in 153.199ms.
 
 tests/project-test/a.js, found 2 dependencies:
  1) ./c/d.js
@@ -169,6 +187,8 @@ tests/project-test/a.js, found 2 dependencies:
 
 
 $ deps-report -ae -w tests/project-test/webpack.config.js find-dependencies tests/project-test/a.js
+
+Processed 1 file in 118.478ms.
 
 tests/project-test/a.js, found 8 dependencies:
  1) /Users/lorenzo/Desktop/deps-report/tests/project-test/c/d.js
@@ -179,6 +199,13 @@ tests/project-test/a.js, found 8 dependencies:
  6) /Users/lorenzo/Desktop/deps-report/tests/project-test/src/templates/main.js
  7) /Users/lorenzo/Desktop/deps-report/tests/project-test/e/b.js
  8) /Users/lorenzo/Desktop/deps-report/tests/project-test/c/d.js
+
+
+$ deps-report -w tests/project-test/webpack.config.js find-dependencies --only-not-found "tests/project-test/*.ts"
+
+Processed 1 file in 42.623ms.
+
+tests/project-test/c.ts
 ```
 
 JSON format example:
@@ -240,12 +267,16 @@ $ deps-report -jps find-dependencies -c tests/project-react-js-test/src/App.js
 ```
 $ deps-report find-dependents tests/project-react-js-test/src/App.js
 
+Processed 1 file in 199.088ms.
+
 tests/project-react-js-test/src/App.js, found 2 dependents:
  1) tests/project-react-js-test/src/App.test.js
  2) tests/project-react-js-test/src/index.js
 
 
 $ deps-report -s find-dependents tests/project-react-js-test/src/App.js
+
+Processed 1 file in 197.761ms.
 
 tests/project-react-js-test/src/App.js, found 2 dependents:
  1) tests/project-react-js-test/src/App.test.js, specifiers imported: default as App
@@ -254,6 +285,8 @@ tests/project-react-js-test/src/App.js, found 2 dependents:
 
 $ deps-report -as find-dependents tests/project-react-js-test/src/App.js
 
+Processed 1 file in 199.046ms.
+
 tests/project-react-js-test/src/App.js, found 2 dependents:
  1) /Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/App.test.js, specifiers imported: default as App
  2) /Users/lorenzo/Desktop/deps-report/tests/project-react-js-test/src/index.js, specifiers imported: default as App
@@ -261,11 +294,15 @@ tests/project-react-js-test/src/App.js, found 2 dependents:
 
 $ deps-report find-dependents tests/project-test/a1.ts
 
+Processed 1 file in 191.590ms.
+
 tests/project-test/a1.ts, found 0 dependents:
     No dependents found!
 
 
 $ deps-report find-dependents -c -r tests/project-test tests/project-test/c/d.js
+
+Processed 1 file in 218.268ms.
 
 tests/project-test/c/d.js, found 4 dependents:
  1) tests/project-test/a.js, Circular Dependency
@@ -275,6 +312,8 @@ tests/project-test/c/d.js, found 4 dependents:
 
 
 $ deps-report -es -w tests/project-test/webpack.config.js find-dependents -r tests/project-test/ tests/project-test/src/utilities/index.js tests/project-test/src/templates/main.js
+
+Processed 2 files in 852.220ms.
 
 tests/project-test/src/utilities/index.js, found 2 dependents:
  1) tests/project-test/a.js, specifiers imported: default as Utilities
@@ -291,11 +330,15 @@ You can search also **images** and **css** files imported in your javascript fil
 ```
 $ deps-report -s find-dependents tests/project-react-js-test/src/logo.svg
 
+Processed 1 file in 218.263ms.
+
 tests/project-react-js-test/src/logo.svg, found 1 dependent:
  1) tests/project-react-js-test/src/App.js, specifiers imported: default as logo
 
 
 $ deps-report find-dependents tests/project-react-js-test/src/App.css
+
+Processed 1 file in 213.301ms.
 
 tests/project-react-js-test/src/App.css, found 1 dependent:
  1) tests/project-react-js-test/src/App.js
@@ -355,6 +398,8 @@ const depsReport = require('deps-report')
 let optionsFindDependencies = {
   circular: false,              // if true, it will try to see if there are some circular dependencies with input files
   onlyCircular: false,          // if true, it will return only dependecies with circular dependency with input files
+  onlyNotFound: false,          // if true, it will return all modules that have no dependencies
+  hideNotFound: false,          // used only for CLI output
   parent: {
     excludeNodeModules: false,  // if true, it will exclude all node modules
     json: false,                // used only for CLI output
@@ -366,6 +411,7 @@ let optionsFindDependencies = {
   } 
 }
 
+// see the corresponding JSON format example
 depsReport.findDependencies(["tests/project-test/a.js"], optionsFindDependencies)
 
 
@@ -375,6 +421,8 @@ let optionsFindDependents = {
   root: 'tests/project-test',   // Root folder from where to start the search of dependents
   circular: false,              // if true, it will try to see if there are some circular dependencies with input files
   onlyCircular: false,          // if true, it will return only dependents with circular dependency with input files
+  onlyNotFound: false,          // if true, it will return all modules that no one is depending on
+  hideNotFound: false,          // used only for CLI output
   parent: {
     excludeNodeModules: false,  // if true, it will exclude all node modules
     json: false,                // used only for CLI output
@@ -386,6 +434,7 @@ let optionsFindDependents = {
   } 
 }
 
+// see the corresponding JSON format example
 depsReport.findDependents(["tests/project-test/src/templates/*.js", "tests/project-test/src/utilities/*.js"], optionsFindDependents)
 ```
 
