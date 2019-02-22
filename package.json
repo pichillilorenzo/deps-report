@@ -42,7 +42,7 @@
   },
   "devDependencies": {
     "ava": "1.0.0-beta.6",
-    "coveralls": "^3.0.1",
+    "coveralls": "^3.0.3",
     "nyc": "^12.0.2"
   },
   "engines": {
